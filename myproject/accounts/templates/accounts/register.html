@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: #f4f4f4; }
+        .register-box { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); width: 300px; }
+        h2 { text-align: center; margin-bottom: 20px; }
+        input { width: 100%; padding: 10px; margin: 8px 0; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+        button { width: 100%; padding: 10px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        button:hover { background: #0056b3; }
+        .error { color: red; font-size: 13px; margin: 4px 0; }
+        .help { color: gray; font-size: 12px; margin: 2px 0 6px 0; }
+    </style>
+</head>
+<body>
+    <div class="register-box">
+        <h2>Create Account</h2>
+        <form method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                {{ field }}
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <p class="error">{{ error }}</p>
+                    {% endfor %}
+                {% endif %}
+                {% if field.help_text %}
+                    <p class="help">{{ field.help_text }}</p>
+                {% endif %}
+            {% endfor %}
+            <button type="submit">Register</button>
+        </form>
+        <p style="text-align: center; margin-top: 15px; font-size: 14px;">
+            Already have an account? <a href="/">Login here</a>
+        </p>
+    </div>
+</body>
+</html>

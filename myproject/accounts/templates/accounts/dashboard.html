@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Finance Tracker</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; }
+    header { background: #007bff; color: white; padding: 20px 30px; text-align: center; }
+    header h1 { margin: 0; font-size: 28px; }
+    header p { margin: 5px 0 0; font-size: 14px; }
+    .navbar { background: #0056b3; padding: 10px 30px; display: flex; justify-content: space-between; align-items: center; }
+    .navbar span { color: white; font-size: 14px; }
+    .navbar a { color: white; text-decoration: none; font-size: 14px; }
+    .input-section, .transactions { background: white; margin: 20px auto; padding: 20px 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); max-width: 600px; }
+    .input-section h2, .transactions h2 { margin-top: 0; }
+    input, select { width: 100%; padding: 10px; margin: 8px 0; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+    button { width: 100%; padding: 10px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; margin-top: 8px; }
+    button:hover { background: #0056b3; }
+    .summary { display: flex; justify-content: center; gap: 20px; margin: 20px auto; max-width: 600px; }
+    .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-align: center; flex: 1; }
+    .card h3 { margin: 0 0 10px; font-size: 14px; color: #666; }
+    .card p { margin: 0; font-size: 24px; font-weight: bold; color: #333; }
+    ul { list-style: none; padding: 0; margin: 0; }
+    ul li { padding: 10px 0; border-bottom: 1px solid #eee; color: #555; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>💰 Finance Tracker</h1>
+    <p>Track your income, expenses, and savings</p>
+  </header>
+
+  <div class="navbar">
+    <span>Welcome, {{ request.user.username }}</span>
+    <a href="/logout/">Logout</a>
+  </div>
+
+  <section class="input-section">
+    <h2>Add Transaction</h2>
+    <form method="post">
+      {% csrf_token %}
+      <input type="text" name="description" placeholder="Description (e.g. Food, Job)" required>
+      <input type="number" name="amount" placeholder="Amount" step="0.01" required>
+      <select name="type">
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+      <button type="submit">Add</button>
+    </form>
+  </section>
+
+  <section class="summary">
+    <div class="card">
+      <h3>Balance</h3>
+      <p>${{ balance }}</p>
+    </div>
+    <div class="card">
+      <h3>Income</h3>
+      <p>${{ total_income }}</p>
+    </div>
+    <div class="card">
+      <h3>Expenses</h3>
+      <p>${{ total_expenses }}</p>
+    </div>
+  </section>
+
+  <section class="transactions">
+    <h2>Transactions</h2>
+    <ul>
+      {% if transactions %}
+        {% for t in transactions %}
+          <li>{{ t.description }} — ${{ t.amount }} ({{ t.type }})</li>
+        {% endfor %}
+      {% else %}
+        <li>No transactions yet</li>
+      {% endif %}
+    </ul>
+  </section>
+
+</body>
+</html>
