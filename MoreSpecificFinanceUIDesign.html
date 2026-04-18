@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MoneyWise — Finance Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Top Nav -->
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#">
+        <span class="brand__logo">MW</span>
+        <span class="brand__name">MoneyWise</span>
+      </a>
+
+      <nav class="nav">
+        <a href="#dashboard">Dashboard</a>
+        <a href="#budget">Budget</a>
+        <a href="#learn">Learn</a>
+        <a href="#transactions">Transactions</a>
+      </nav>
+
+      <div class="topbar__actions">
+        <button class="btn btn--ghost" type="button">Sign in</button>
+        <button class="btn btn--primary" type="button">Create account</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <h1>Take control of your money.</h1>
+          <p>
+            Track income and expenses, build a simple budget, and learn habits that
+            make your money go further.
+          </p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#dashboard">Open dashboard</a>
+            <a class="btn btn--ghost" href="#learn">Start learning</a>
+          </div>
+
+          <div class="hero__badges">
+            <span class="badge">Allowance-friendly</span>
+            <span class="badge">Paycheck-ready</span>
+            <span class="badge">Simple goals</span>
+          </div>
+        </div>
+
+        <div class="hero__card">
+          <div class="mini">
+            <div class="mini__row">
+              <div>
+                <div class="mini__label">This month</div>
+                <div class="mini__value">$0 planned</div>
+              </div>
+              <div class="pill pill--ok">On track</div>
+            </div>
+            <div class="mini__grid">
+              <div class="mini__box">
+                <div class="mini__label">Income</div>
+                <div class="mini__value">$0</div>
+              </div>
+              <div class="mini__box">
+                <div class="mini__label">Expenses</div>
+                <div class="mini__value">$0</div>
+              </div>
+              <div class="mini__box">
+                <div class="mini__label">Savings</div>
+                <div class="mini__value">$0</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Cards -->
+    <section class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2>Everything you need to start</h2>
+          <p>Clean, simple tools that grow with you.</p>
+        </div>
+
+        <div class="grid grid--3">
+          <article class="card">
+            <h3>Track transactions</h3>
+            <p>Add income and expenses in seconds and see where money goes.</p>
+          </article>
+          <article class="card">
+            <h3>Budget breakdown</h3>
+            <p>Plan your needs, wants, and savings with clear totals.</p>
+          </article>
+          <article class="card">
+            <h3>Learn as you go</h3>
+            <p>Short lessons and tips you can apply immediately.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard Summary -->
+    <section class="section" id="dashboard">
+      <div class="container">
+        <div class="section__head">
+          <h2>Dashboard</h2>
+          <p>A quick snapshot of your money this period.</p>
+        </div>
+
+        <div class="grid grid--3">
+          <div class="stat stat--balance">
+            <div class="stat__label">Balance</div>
+            <div class="stat__value">$0</div>
+            <div class="stat__hint">Income − Expenses</div>
+          </div>
+
+          <div class="stat">
+            <div class="stat__label">Income</div>
+            <div class="stat__value">$0</div>
+            <div class="stat__hint">All deposits</div>
+          </div>
+
+          <div class="stat">
+            <div class="stat__label">Expenses</div>
+            <div class="stat__value">$0</div>
+            <div class="stat__hint">All spending</div>
+          </div>
+        </div>
+
+        <div class="grid grid--2 mt-16">
+          <!-- Add Transaction -->
+          <section class="panel">
+            <div class="panel__head">
+              <h3>Add transaction</h3>
+              <p>Log income or spending to update your totals.</p>
+            </div>
+
+            <form class="form">
+              <div class="form__row">
+                <label class="field">
+                  <span>Description</span>
+                  <input type="text" placeholder="e.g. Paycheck, Groceries, Gas" />
+                </label>
+              </div>
+
+              <div class="form__row form__row--2">
+                <label class="field">
+                  <span>Amount</span>
+                  <input type="number" placeholder="0.00" />
+                </label>
+
+                <label class="field">
+                  <span>Type</span>
+                  <select>
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="form__row form__row--2">
+                <label class="field">
+                  <span>Category</span>
+                  <select>
+                    <option>Needs</option>
+                    <option>Wants</option>
+                    <option>Savings</option>
+                    <option>Debt</option>
+                    <option>Other</option>
+                  </select>
+                </label>
+
+                <label class="field">
+                  <span>Date</span>
+                  <input type="date" />
+                </label>
+              </div>
+
+              <div class="form__actions">
+                <button class="btn btn--primary" type="button">Add transaction</button>
+                <button class="btn btn--ghost" type="reset">Clear</button>
+              </div>
+            </form>
+          </section>
+
+          <!-- Tips / Learn -->
+          <aside class="panel" id="learn">
+            <div class="panel__head">
+              <h3>Learning tip</h3>
+              <p>Small habits make big differences.</p>
+            </div>
+
+            <div class="tips">
+              <div class="tip">
+                <div class="tip__title">Try the 50/30/20 rule</div>
+                <div class="tip__text">Needs 50%, Wants 30%, Savings 20%.</div>
+              </div>
+              <div class="tip">
+                <div class="tip__title">Pay yourself first</div>
+                <div class="tip__text">Move savings out right after you get paid.</div>
+              </div>
+              <div class="tip">
+                <div class="tip__title">Make “subscriptions” visible</div>
+                <div class="tip__text">List them all. Cancel anything unused.</div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="lesson-list">
+              <a href="#" class="lesson">
+                <div class="lesson__title">Budgeting basics</div>
+                <div class="lesson__meta">5 min</div>
+              </a>
+              <a href="#" class="lesson">
+                <div class="lesson__title">Needs vs wants</div>
+                <div class="lesson__meta">4 min</div>
+              </a>
+              <a href="#" class="lesson">
+                <div class="lesson__title">Emergency funds</div>
+                <div class="lesson__meta">6 min</div>
+              </a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Budget Section -->
+    <section class="section" id="budget">
+      <div class="container">
+        <div class="section__head">
+          <h2>Budget plan</h2>
+          <p>Plan your money before you spend it.</p>
+        </div>
+
+        <div class="grid grid--2">
+          <section class="panel">
+            <div class="panel__head">
+              <h3>Budget breakdown</h3>
+              <p>Set target amounts by category.</p>
+            </div>
+
+            <div class="budget-rows">
+              <div class="budget-row">
+                <div class="budget-row__left">
+                  <div class="budget-row__title">Needs</div>
+                  <div class="budget-row__desc">Rent, food, bills, transport</div>
+                </div>
+                <div class="budget-row__right">
+                  <span class="chip">50%</span>
+                  <span class="money">$0</span>
+                </div>
+              </div>
+
+              <div class="budget-row">
+                <div class="budget-row__left">
+                  <div class="budget-row__title">Wants</div>
+                  <div class="budget-row__desc">Fun, eating out, hobbies</div>
+                </div>
+                <div class="budget-row__right">
+                  <span class="chip">30%</span>
+                  <span class="money">$0</span>
+                </div>
+              </div>
+
+              <div class="budget-row">
+                <div class="budget-row__left">
+                  <div class="budget-row__title">Savings</div>
+                  <div class="budget-row__desc">Emergency fund, goals</div>
+                </div>
+                <div class="budget-row__right">
+                  <span class="chip">20%</span>
+                  <span class="money">$0</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <aside class="panel">
+            <div class="panel__head">
+              <h3>Goals</h3>
+              <p>Pick one goal to focus on first.</p>
+            </div>
+
+            <div class="goals">
+              <div class="goal">
+                <div class="goal__title">Emergency fund</div>
+                <div class="progress">
+                  <div class="progress__bar" style="width: 0%"></div>
+                </div>
+                <div class="goal__meta">$0 of $500</div>
+              </div>
+
+              <div class="goal">
+                <div class="goal__title">New laptop</div>
+                <div class="progress">
+                  <div class="progress__bar" style="width: 0%"></div>
+                </div>
+                <div class="goal__meta">$0 of $900</div>
+              </div>
+            </div>
+
+            <button class="btn btn--primary btn--full" type="button">Add a goal</button>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Transactions -->
+    <section class="section" id="transactions">
+      <div class="container">
+        <div class="section__head">
+          <h2>Transactions</h2>
+          <p>Your recent activity will show here.</p>
+        </div>
+
+        <div class="panel">
+          <div class="table">
+            <div class="table__head">
+              <div>Date</div>
+              <div>Description</div>
+              <div>Category</div>
+              <div class="right">Amount</div>
+            </div>
+
+            <div class="table__row">
+              <div class="muted">—</div>
+              <div class="muted">No transactions yet</div>
+              <div class="muted">—</div>
+              <div class="right muted">$0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="muted">© <span id="year"></span> MoneyWise</div>
+        <div class="footer__links">
+          <a href="#learn">Learn</a>
+          <a href="#budget">Budget</a>
+          <a href="#transactions">Transactions</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
